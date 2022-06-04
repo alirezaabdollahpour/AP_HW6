@@ -20,11 +20,11 @@ double moshtagh(T point, Func func)
 template <typename T, typename Func>
 double gradient_descent(T ivalue, double step, Func func = Func {})
 {
-    double lr { step };
+    double learning_rate = { step };
     T iv { ivalue };
-    double taghirat { lr * moshtagh(iv, func) };
-    while (std::abs(taghirat) >= 0.00001) {
-        taghirat = lr * moshtagh(iv, func);
+    double taghirat { learning_rate * moshtagh(iv, func) };
+    while (std::abs(taghirat) >= 0.000000001) {
+        taghirat = learning_rate * moshtagh(iv, func);
         iv = iv - taghirat;
     }
     return iv;
