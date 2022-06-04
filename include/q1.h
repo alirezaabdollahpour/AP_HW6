@@ -10,6 +10,7 @@
 namespace q1 {
 
 template <typename T, typename Func>
+// define derviate function for calculate gradient_descent -> f'(x) = f(x+h)-f(x-h)/2*h and h goes to 0
 double moshtagh(T point, Func func)
 {
     double eps { 0.001 };
