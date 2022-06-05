@@ -25,7 +25,7 @@ struct Patient {
     size_t alkhol;
 };
 
-std::vector<Patient> read_file(std::string filename)
+static std::vector<Patient> read_file(std::string filename)
 {
     std::ifstream file(filename);
     std::stringstream buffer;
@@ -52,12 +52,12 @@ std::vector<Patient> read_file(std::string filename)
     return Patients;
 }
 
-bool comparison(Patient& a, Patient& b)
+inline bool comparison(Patient& a, Patient& b)
 {
     return 3 * (a.age) + 5 * (a.smokes) + 2 * (a.area_q) + 4 * (a.alkhol) > 3 * (b.age) + 5 * (b.smokes) + 2 * (b.area_q) + 4 * (b.alkhol);
 }
 
-void sort(std::vector<Patient>& patients)
+inline void sort(std::vector<Patient>& patients)
 {
     std::sort(patients.begin(), patients.end(), comparison);
 }

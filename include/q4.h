@@ -37,7 +37,7 @@ struct ywieghted {
     }
 };
 
-Vector2D kalman_filter(std::vector<Sensor> sensors)
+inline Vector2D kalman_filter(std::vector<Sensor> sensors)
 {
 
     double andaze {};

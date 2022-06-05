@@ -26,7 +26,7 @@ struct Flight {
     size_t price;
 };
 
-size_t transfer_to_time(std::string times)
+static size_t transfer_to_time(std::string times)
 {
     std::regex pattern(R"((\d+)h(\d+)?m?\,?)");
     std::smatch match;
@@ -43,11 +43,11 @@ size_t transfer_to_time(std::string times)
     return daghighe;
 }
 
-auto comparison { [](Flight first, Flight second) {
+inline auto comparison { [](Flight first, Flight second) {
     return (first.connection_times + first.duration + 3 * first.price) > (second.connection_times + second.duration + 3 * second.price);
 } };
 
-auto gather_flights(std::string filename)
+static auto gather_flights(std::string filename)
 {
     std::priority_queue<Flight, std::vector<Flight>, decltype(comparison)> flights { comparison };
     std::ifstream file(filename);
